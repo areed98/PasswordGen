@@ -8,7 +8,6 @@ var numbers = "0123456789";
 var special = ["!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
 
 // User input variables
-var generate;
 var confirmLength;
 var confirmUppercase;
 var confirmLowerCase;
@@ -24,7 +23,7 @@ function writePassword() {
 
 }
 
-function generatePassword(); {
+function generatePassword() {
   // User input 1
   confirmLength = parseInt(prompt("How long would you like your password? Choose a length between 8 and 128, inclusive."));
   // Start if function
@@ -43,6 +42,8 @@ function generatePassword(); {
   else {
     alert("I'm unsure how you messed that up!");
   }
+
+  
 }
 
 // Add event listener to generate button
