@@ -21,6 +21,8 @@ generateBtn.addEventListener("click", generatePassword);
 // Set the randomFinal variable to the password ID in the html
 function Finalpassword(randomFinal) {
   document.getElementById("password").textContent = randomFinal;
+  // Sets our added string values back to zero, once we have input the password into the field, so that it does not break the generator.
+  confirmFinal = "";
 }
 
 // Give confirm conditions a variable
@@ -30,14 +32,17 @@ var confirmFinal = "";
 function generatePassword() {
   confirmLength = parseInt(prompt("How long would you like your password? Choose a length between 8 and 128, inclusive."));
 
-  // Check if length is correct, if so, it continues to uppercase
+  // Check if length is outside of correct parameters
   if (confirmLength < 8 || confirmLength > 128) {
     alert("Your password must be between 8 and 128 characters!");
     generatePassword();
   }
+  // If no value is input, it prompts to input a value.
   else if (!confirmLength) {
     alert("You must input a value!");
+    generatePassword();
   }
+  // If length is correct, then prompt for our types of values
   else {
     confirmUppercase = prompt("Will this contain uppercase letters?", "Please enter yes or no.");
     console.log(confirmUppercase);
@@ -89,7 +94,7 @@ function generatePassword() {
   else {
     confirmFinal = confirmFinal.concat();
   }
-
+  // If our final value is empty, it resets the function.
   if (confirmFinal == "") {
     alert("Please make sure you select one or more options, sending you back to the beginning!");
     generatePassword();
@@ -108,5 +113,5 @@ function generatePassword() {
   var password = Final.join("");
   Finalpassword(password);
   return password;
-
 }
+
