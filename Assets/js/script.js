@@ -45,7 +45,6 @@ function generatePassword() {
   // If length is correct, then prompt for our types of values
   else {
     confirmUppercase = prompt("Will this contain uppercase letters?", "Please enter yes or no.");
-    console.log(confirmUppercase);
     if (confirmUppercase != "Yes" && confirmUppercase != "yes" && confirmUppercase != "No" && confirmUppercase != "no") {
       confirmUppercase = prompt("Please enter either yes or no", "yes/no");
     }
@@ -65,7 +64,6 @@ function generatePassword() {
   // Check for uppercase, if not, it will continue to lowercase
   if (confirmUppercase == "Yes" || confirmUppercase == "yes") {
     confirmFinal = confirmFinal.concat(uppercase);
-    console.log(confirmFinal);
   }
   else {
     confirmFinal = confirmFinal.concat();
@@ -73,7 +71,6 @@ function generatePassword() {
   // Check for lowercase, if not, it will continue to numbers
   if (confirmLowercase == "Yes" || confirmLowercase == "yes") {
     confirmFinal = confirmFinal.concat(lowercase);
-    console.log(confirmFinal);
   }
   else {
     confirmFinal = confirmFinal.concat();
@@ -81,7 +78,6 @@ function generatePassword() {
   // Check for numbers, if not, it will continue to Special
   if (confirmNumber == "Yes" || confirmNumber == "yes") {
     confirmFinal = confirmFinal.concat(numbers);
-    console.log(confirmFinal);
   }
   else {
     confirmFinal = confirmFinal.concat();
@@ -89,7 +85,6 @@ function generatePassword() {
   // Check for special, not not, if statements are complete
   if (confirmSpecial == "Yes" || confirmSpecial == "yes") {
     confirmFinal = confirmFinal.concat(special);
-    console.log(confirmFinal);
   }
   else {
     confirmFinal = confirmFinal.concat();
