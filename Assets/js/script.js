@@ -26,44 +26,73 @@ function Finalpassword(randomFinal) {
 // Give confirm conditions a variable
 var confirmFinal = "";
 
+// Fuction to generate password using the different cases
 function generatePassword() {
-  // User input 1
   confirmLength = parseInt(prompt("How long would you like your password? Choose a length between 8 and 128, inclusive."));
+
   // Check if length is correct, if so, it continues to uppercase
-  if (confirmLength >= 8 && confirmLength <= 128) {
-    confirmUppercase = prompt("Will this contain uppercase letters?", "Please enter yes or no.");
-    confirmLowercase = prompt("Will this contain lowercase letters?", "Please enter yes or no.");
-    confirmNumber = prompt("Will this contain numbers?", "Please enter yes or no.");
-    confirmSpecial = prompt("Will this contain special characters?", "Please enter yes or no.");
-  }
-  else if (confirmLength < 8 || confirmLength > 128) {
-    confirmLength = parseInt(prompt("Your password must be between 8 and 128 characters!"));
+  if (confirmLength < 8 || confirmLength > 128) {
+    alert("Your password must be between 8 and 128 characters!");
+    generatePassword();
   }
   else if (!confirmLength) {
     alert("You must input a value!");
   }
   else {
-    alert("I'm unsure how you messed that up!");
+    confirmUppercase = prompt("Will this contain uppercase letters?", "Please enter yes or no.");
+    console.log(confirmUppercase);
+    if (confirmUppercase != "Yes" && confirmUppercase != "yes" && confirmUppercase != "No" && confirmUppercase != "no") {
+      confirmUppercase = prompt("Please enter either yes or no", "yes/no");
+    }
+    confirmLowercase = prompt("Will this contain lowercase letters?", "Please enter yes or no.");
+    if (confirmLowercase != "Yes" && confirmLowercase != "yes" && confirmLowercase != "No" && confirmLowercase != "no") {
+      confirmLowercase = prompt("Please enter either yes or no", "yes/no");
+    }
+    confirmNumber = prompt("Will this contain numbers?", "Please enter yes or no.");
+    if (confirmNumber != "Yes" && confirmNumber != "yes" && confirmNumber != "No" && confirmNumber != "no") {
+      confirmNumber = prompt("Please enter either yes or no", "yes/no");
+    }
+    confirmSpecial = prompt("Will this contain special characters?", "Please enter yes or no.");
+    if (confirmSpecial != "Yes" && confirmSpecial != "yes" && confirmSpecial != "No" && confirmSpecial != "no") {
+      confirmSpecial = prompt("Please enter either yes or no", "yes/no");
+    }
   }
   // Check for uppercase, if not, it will continue to lowercase
   if (confirmUppercase == "Yes" || confirmUppercase == "yes") {
     confirmFinal = confirmFinal.concat(uppercase);
     console.log(confirmFinal);
   }
+  else {
+    confirmFinal = confirmFinal.concat();
+  }
   // Check for lowercase, if not, it will continue to numbers
   if (confirmLowercase == "Yes" || confirmLowercase == "yes") {
     confirmFinal = confirmFinal.concat(lowercase);
     console.log(confirmFinal);
+  }
+  else {
+    confirmFinal = confirmFinal.concat();
   }
   // Check for numbers, if not, it will continue to Special
   if (confirmNumber == "Yes" || confirmNumber == "yes") {
     confirmFinal = confirmFinal.concat(numbers);
     console.log(confirmFinal);
   }
+  else {
+    confirmFinal = confirmFinal.concat();
+  }
   // Check for special, not not, if statements are complete
   if (confirmSpecial == "Yes" || confirmSpecial == "yes") {
     confirmFinal = confirmFinal.concat(special);
     console.log(confirmFinal);
+  }
+  else {
+    confirmFinal = confirmFinal.concat();
+  }
+
+  if (confirmFinal == "") {
+    alert("Please make sure you select one or more options, sending you back to the beginning!");
+    generatePassword();
   }
 
   // Sets the Final variable as a placeholder
